@@ -1,6 +1,6 @@
 {
-  "name": "react-native-snackbar",
-  "version": "2.7.1",
+  "name": "@react-native-oh-tpl/react-native-snackbar",
+  "version": "2.7.1-0.0.1",
   "description": "Material Design \"Snackbar\" component for Android and iOS.",
   "main": "lib/index.js",
   "types": "src/index.d.ts",
@@ -25,7 +25,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cooperka/react-native-snackbar.git"
+    "url": "git://github.com/react-native-oh-library/react-native-snackbar.git"
+  },
+  "harmony": {
+    "alias": "react-native-snackbar",
+   "codegenConfig": {
+      "specPaths": [
+        "./src"
+      ]
+    }
   },
   "keywords": [
     "react-native",
@@ -34,7 +42,8 @@
     "android",
     "material design",
     "snackbar",
-    "snack bar"
+    "snack bar",
+    "harmony"
   ],
   "author": "Azendoo",
   "license": "MIT",

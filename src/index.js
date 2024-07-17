@@ -1,6 +1,9 @@
 // @flow
 
-import { NativeModules, processColor } from 'react-native';
+import { NativeModules, processColor,Platform,TurboModuleRegistry } from 'react-native';
+
+
+var RNSnackbar =TurboModuleRegistry ? TurboModuleRegistry.get('SnackbarNativeModule') : NativeModules.RNSnackbar;
 
 /**
  * An optional, actionable button on the Snackbar.
@@ -132,18 +135,21 @@ type ISnackBar = {
   dismiss: () => void,
 };
 
-const SnackBar: ISnackBar = {
-  LENGTH_LONG: NativeModules.RNSnackbar.LENGTH_LONG,
-  LENGTH_SHORT: NativeModules.RNSnackbar.LENGTH_SHORT,
-  LENGTH_INDEFINITE: NativeModules.RNSnackbar.LENGTH_INDEFINITE,
-  DISMISS_EVENT_SWIPE: NativeModules.RNSnackbar.DISMISS_EVENT_SWIPE,
-  DISMISS_EVENT_ACTION: NativeModules.RNSnackbar.DISMISS_EVENT_ACTION,
-  DISMISS_EVENT_TIMEOUT: NativeModules.RNSnackbar.DISMISS_EVENT_TIMEOUT,
-  DISMISS_EVENT_MANUAL: NativeModules.RNSnackbar.DISMISS_EVENT_MANUAL,
-  DISMISS_EVENT_CONSECUTIVE: NativeModules.RNSnackbar.DISMISS_EVENT_CONSECUTIVE,
-  SHOW_EVENT: NativeModules.RNSnackbar.SHOW_EVENT,
 
+const SnackBar: ISnackBar = {
+
+  LENGTH_LONG: RNSnackbar.LENGTH_LONG,
+  LENGTH_SHORT: RNSnackbar.LENGTH_SHORT,
+  LENGTH_INDEFINITE: RNSnackbar.LENGTH_INDEFINITE,
+  DISMISS_EVENT_SWIPE: RNSnackbar.DISMISS_EVENT_SWIPE,
+  DISMISS_EVENT_ACTION: RNSnackbar.DISMISS_EVENT_ACTION,
+  DISMISS_EVENT_TIMEOUT: RNSnackbar.DISMISS_EVENT_TIMEOUT,
+  DISMISS_EVENT_MANUAL: RNSnackbar.DISMISS_EVENT_MANUAL,
+  DISMISS_EVENT_CONSECUTIVE: RNSnackbar.DISMISS_EVENT_CONSECUTIVE,
+  SHOW_EVENT: RNSnackbar.SHOW_EVENT,
+  
   show(options: SnackBarOptions) {
+
     warnDeprecation(options, 'title', 'text');
     warnDeprecation(options, 'color', 'textColor');
 
@@ -181,19 +187,22 @@ const SnackBar: ISnackBar = {
         textColor: actionTextColor,
       } : undefined,
     };
-
-    NativeModules.RNSnackbar.show(nativeOptions, onPressCallback);
+    RNSnackbar.show(nativeOptions, onPressCallback);
   },
 
   dismiss() {
-    NativeModules.RNSnackbar.dismiss();
+    RNSnackbar.dismiss();
   },
 };
+
+
 
 function warnDeprecation(options, deprecatedKey, newKey) {
   if (options && options[deprecatedKey]) {
     console.warn(`The Snackbar '${deprecatedKey}' option has been deprecated. Please switch to '${newKey}' instead.`);
   }
 }
+
+
 
 export default SnackBar;
