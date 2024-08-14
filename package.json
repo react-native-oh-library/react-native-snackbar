@@ -1,6 +1,6 @@
 {
   "name": "@react-native-oh-tpl/react-native-snackbar",
-  "version": "2.7.1-0.0.1",
+  "version": "2.7.1-0.0.2",
   "description": "Material Design \"Snackbar\" component for Android and iOS.",
   "main": "lib/index.js",
   "types": "src/index.d.ts",

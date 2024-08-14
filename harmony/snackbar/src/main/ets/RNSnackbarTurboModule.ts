@@ -17,11 +17,11 @@ interface SnackbarOptions {
   };
 }
 
-let DEFAULT_NUMBEROFLINES = 2
-let DEFAULT_TEXTCOLOR = 'white'
-let DEFAULT_MARGINBOTTOM = 0
-let DEFAULT_BACKGROUNDCOLOR = 'gray'
-let DEFAULT_ACTIONTEXTCOLOR = 'white'
+const DEFAULT_NUMBER_OF_LINES = 2
+const DEFAULT_TEXT_COLOR = 'white'
+const DEFAULT_MARGIN_BOTTOM = 0
+const DEFAULT_BACKGROUND_COLOR = 'gray'
+const DEFAULT_ACTION_TEXT_COLOR = 'white'
 
 export class RNSnackbarTurboModule extends TurboModule implements TM.SnackbarNativeModule.Spec {
 
@@ -40,12 +40,12 @@ export class RNSnackbarTurboModule extends TurboModule implements TM.SnackbarNat
   }
 
   show(options: SnackbarOptions) {
-    let numberOfLines = this.getOptionValue(options, 'text', DEFAULT_NUMBEROFLINES)
-    let textColor = this.getOptionValue(options, 'textColor', DEFAULT_TEXTCOLOR)
-    let marginBottom = this.getOptionValue(options, 'marginBottom', DEFAULT_MARGINBOTTOM)
-    let backgroundColor = this.getOptionValue(options, 'backgroundColor', DEFAULT_BACKGROUNDCOLOR)
+    let numberOfLines = this.getOptionValue(options, 'text', DEFAULT_NUMBER_OF_LINES)
+    let textColor = this.getOptionValue(options, 'textColor', DEFAULT_TEXT_COLOR)
+    let marginBottom = this.getOptionValue(options, 'marginBottom', DEFAULT_MARGIN_BOTTOM)
+    let backgroundColor = this.getOptionValue(options, 'backgroundColor', DEFAULT_BACKGROUND_COLOR)
     if (options.action) {
-      let actionTextColor = this.getOptionValue(options, 'textColor', DEFAULT_ACTIONTEXTCOLOR)
+      let actionTextColor = this.getOptionValue(options, 'textColor', DEFAULT_ACTION_TEXT_COLOR)
     }
 
     promptAction.showToast({
