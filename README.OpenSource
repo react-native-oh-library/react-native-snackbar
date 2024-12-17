@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "react-native-snackbar",
+        "License": "MIT License",
+        "License File": "https://github.com/cooperka/react-native-snackbar/blob/main/LICENSE",
+        "Version Number": "2.7.1",
+        "Owner" : "xiafeng@huawei.com",
+        "Upstream URL": "https://github.com/cooperka/react-native-snackbar",
+        "Description": "Material Design \"Snackbar\" component for Android and iOS."
+    }
+]
